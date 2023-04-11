@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css" media="screen" title="no title">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script>
+	var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "ngadimin" && password == "gateli"){
+alert ("Login Anda Sukses !!!");
+window.location = "file:/:/webku/halaman%20utama/tambah.html"// Redirecting to other page.
+return false;
+}
+else{
+attempt --;// Decrementing by one.
+alert("User name atau Password yang anda masukkan Salah. Anda Memiliki "+attempt+" kesempatan lagi. Jika lupa hubungi administrator;");
+// Disabling fields after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+	</script>
+  </head>
+  <body>
+  <div class="login">
+
+          <div class="avatar">
+            <i class="fa fa-user"></i>
+          </div>
+
+          <h2>Login </h2>
+
+          <div class="box-login">
+            <i class="fas fa-envelope-open-text"></i>
+            <input type="text" name="username" id="username" placeholder="username"/>
+          </div>
+
+          <div class="box-login">
+            <i class="fas fa-lock"></i>
+            <input type="password" name="password" id="password" placeholder="password"/>
+          </div>
+
+          <input type="button" value="Login" id="submit" class="btn-login" onclick="validate()"/>
+          <div class="bottom">
+		  <a href="#">Daftar</a>
+            <a href="#">Lupa Password ?</a>
+          </div>
+      </div>
+  </body>
+  </html>
